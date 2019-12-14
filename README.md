@@ -48,10 +48,12 @@ LD_LIBRARY_PATH=/opt/nodejs/openssl/lib
 
 ## Usage
 
+パスが通っていないので `/opt/nodejs/openssl/bin/openssl` で。
+
+## example
+
 ```sh
 'use strict';
-
-console.log('Loading function');
 
 var request = require('request');
 var _ = require('underscore');
@@ -62,8 +64,6 @@ exports.handler = (event, context, callback) => {
     console.log(res.toString());
 }
 ```
-
-## example
 
 SSL証明書の有効期限をチェックするやつ
 
