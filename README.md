@@ -46,6 +46,23 @@ docker run -it -v `pwd`:/opt/layer lambci/lambda:build-nodejs12.x /opt/layer/cre
 LD_LIBRARY_PATH=/opt/nodejs/openssl/lib
 ```
 
+## Usage
+
+```sh
+'use strict';
+
+console.log('Loading function');
+
+var request = require('request');
+var _ = require('underscore');
+
+exports.handler = (event, context, callback) => {
+    const execSync = require('child_process').execSync;
+    const res = execSync('/opt/nodejs/openssl/bin/openssl version');
+    console.log(res.toString());
+}
+```
+
 ## example
 
 SSL証明書の有効期限をチェックするやつ
